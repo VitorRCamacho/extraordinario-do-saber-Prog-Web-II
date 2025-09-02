@@ -1,0 +1,18 @@
+<%- include('partials/header', { title }) %>
+<div class="card">
+  <h2>Login</h2>
+  <form action="/auth/login" method="POST" class="grid">
+    <label>E-mail
+      <input type="email" name="email" required value="<%= remembered %>" />
+    </label>
+    <label>Senha
+      <input type="password" name="password" required />
+    </label>
+    <label class="row">
+      <input type="checkbox" name="remember" /> Lembrar e-mail neste dispositivo
+    </label>
+    <button type="submit">Entrar</button>
+    <p>Não tem conta? <a href="/auth/register">Cadastre-se</a></p>
+  </form>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,18 @@
+<%- include('partials/header', { title }) %>
+<div class="card">
+  <h2>Cadastro</h2>
+  <form action="/auth/register" method="POST" class="grid">
+    <label>Nome
+      <input type="text" name="name" required />
+    </label>
+    <label>E-mail
+      <input type="email" name="email" required />
+    </label>
+    <label>Senha
+      <input type="password" name="password" required />
+    </label>
+    <button type="submit">Criar conta</button>
+    <p>Já tem conta? <a href="/auth/login">Entrar</a></p>
+  </form>
+</div>
+<%- include('partials/footer') %>

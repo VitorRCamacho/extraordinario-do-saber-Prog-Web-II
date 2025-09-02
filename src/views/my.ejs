@@ -1,0 +1,22 @@
+<%- include('partials/header', { title }) %>
+<div class="card">
+  <h2>Meus Eventos</h2>
+  <table class="table">
+    <thead>
+      <tr><th>Título</th><th>Data</th><th>Local</th></tr>
+    </thead>
+    <tbody>
+      <% if (events.length === 0) { %>
+        <tr><td colspan="3">Você ainda não está inscrito em nenhum evento.</td></tr>
+      <% } %>
+      <% events.forEach(ev => { %>
+        <tr>
+          <td><a href="/events/<%= ev.id %>"><%= ev.title %></a></td>
+          <td><%= new Date(ev.date).toLocaleString('pt-BR') %></td>
+          <td><%= ev.location || '-' %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('partials/footer') %>

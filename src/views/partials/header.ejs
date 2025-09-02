@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title + ' · ' : '' %>Eventos</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Eventos Acadêmicos</h1>
+    <nav>
+      <% if (currentUser) { %>
+        <a href="/">Início</a>
+        <a href="/events">Eventos</a>
+        <a href="/my">Meus Eventos</a>
+        <% if (currentUser.is_admin) { %>
+          <a href="/events/new">Novo Evento</a>
+        <% } %>
+        <form action="/auth/logout" method="POST" style="display:inline">
+          <button class="linklike">Sair</button>
+        </form>
+      <% } else { %>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/register">Cadastrar</a>
+      <% } %>
+    </nav>
+  </header>
+  <main class="container">

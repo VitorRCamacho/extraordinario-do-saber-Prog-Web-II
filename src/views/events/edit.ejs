@@ -1,0 +1,20 @@
+<%- include('../partials/header', { title }) %>
+<div class="card">
+  <h2>Editar Evento</h2>
+  <form action="/events/<%= event.id %>?_method=PUT" method="POST" class="grid">
+    <label>Título
+      <input type="text" name="title" required value="<%= event.title %>" />
+    </label>
+    <label>Data e hora
+      <input type="datetime-local" name="date" required value="<%= new Date(event.date).toISOString().slice(0,16) %>" />
+    </label>
+    <label>Local
+      <input type="text" name="location" value="<%= event.location || '' %>" />
+    </label>
+    <label>Descrição
+      <textarea name="description" rows="3"><%= event.description || '' %></textarea>
+    </label>
+    <button type="submit">Salvar alterações</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>

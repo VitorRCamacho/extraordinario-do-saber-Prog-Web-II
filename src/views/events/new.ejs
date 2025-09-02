@@ -1,0 +1,20 @@
+<%- include('../partials/header', { title }) %>
+<div class="card">
+  <h2>Novo Evento</h2>
+  <form action="/events" method="POST" class="grid">
+    <label>Título
+      <input type="text" name="title" required />
+    </label>
+    <label>Data e hora
+      <input type="datetime-local" name="date" required />
+    </label>
+    <label>Local
+      <input type="text" name="location" placeholder="Auditório, sala, etc." />
+    </label>
+    <label>Descrição
+      <textarea name="description" rows="3"></textarea>
+    </label>
+    <button type="submit">Salvar</button>
+  </form>
+</div>
+<%- include('../partials/footer') %>

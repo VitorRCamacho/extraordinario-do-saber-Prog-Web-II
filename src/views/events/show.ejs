@@ -1,0 +1,40 @@
+<%- include('../partials/header', { title }) %>
+<div class="card">
+  <h2><%= event.title %></h2>
+  <p><strong>Data:</strong> <%= new Date(event.date).toLocaleString('pt-BR') %></p>
+  <p><strong>Local:</strong> <%= event.location || '-' %></p>
+  <p><strong>Descrição:</strong> <%= event.description || '-' %></p>
+
+  <% if (currentUser) { %>
+    <form action="/events/<%= event.id %>/<%= isSubscribed ? 'unsubscribe' : 'subscribe' %>" method="POST" style="display:inline">
+      <button><%= isSubscribed ? 'Cancelar inscrição' : 'Inscrever-se' %></button>
+    </form>
+  <% } %>
+
+  <% if (currentUser && currentUser.is_admin) { %>
+    <div style="margin-top:12px">
+      <a class="btn" href="/events/<%= event.id %>/edit">Editar</a>
+      <form action="/events/<%= event.id %>?_method=DELETE" method="POST" style="display:inline" onsubmit="return confirm('Excluir evento?')">
+        <button style="background:#b1272c">Excluir</button>
+      </form>
+    </div>
+  <% } %>
+</div>
+
+<% if (currentUser && currentUser.is_admin) { %>
+  <div class="card" style="margin-top:16px">
+    <h3>Inscritos</h3>
+    <table class="table">
+      <thead><tr><th>Nome</th><th>E-mail</th></tr></thead>
+      <tbody>
+        <% if (subscribers.length === 0) { %>
+          <tr><td colspan="2">Nenhum inscrito.</td></tr>
+        <% } %>
+        <% subscribers.forEach(u => { %>
+          <tr><td><%= u.name %></td><td><%= u.email %></td></tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+<% } %>
+<%- include('../partials/footer') %>
