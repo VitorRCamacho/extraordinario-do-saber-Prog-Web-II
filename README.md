@@ -84,7 +84,6 @@ app.js, package.json, README.md
 
 ## Considerações finais
 - O sistema entrega autenticação, sessões, cookie, MVC, CRUD para admin e inscrições com trava de duplicidade.
-- Rodapé personalizado: **“Vítor Camacho — Estrela de Jardim do Saber”**.
 - Caso necessário, posso ajustar critérios (por exemplo, regra de admin por domínio) mantendo a mesma arquitetura.
 
 ---
