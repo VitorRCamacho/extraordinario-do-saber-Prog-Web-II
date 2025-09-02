@@ -1,7 +1,6 @@
 # Sistema de Gerenciamento de Eventos Acadêmicos
 **Aluno:** Vítor Camacho (ADS – IFC Fraiburgo)  
 **Avaliação:** Extraordinário do Saber – Programação Web 2  
-**Projeto:** Estrela de Jardim do Saber
 
 
 
